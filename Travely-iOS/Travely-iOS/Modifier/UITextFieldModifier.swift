@@ -11,7 +11,8 @@ struct StandardTextField: ViewModifier {
     func body(content: Content) -> some View {
         content
             .frame(width: 300, height: 40, alignment: .leading)
-            .border(Color.gray)
-            .cornerRadius(10)
+            .textFieldStyle(.roundedBorder)
+            .font(.system(size: 14))
+            .foregroundColor(Color.init(uiColor: .mainColor!))
     }
 }
