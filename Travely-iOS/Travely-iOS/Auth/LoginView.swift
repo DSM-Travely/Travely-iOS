@@ -8,26 +8,40 @@
 import SwiftUI
 
 struct LoginView: View {
-
-    @State var nickName: String = ""
-    @State var email: String = ""
-    @State var password: String = ""
+    
+    @State private var email: String = ""
+    @State private var password: String = ""
     
     var body: some View {
-        VStack {
-            Spacer()
-            Text("Welcome to Travley")
+        VStack(alignment: .leading) {
+            Text("Welcome back to Travley")
                 .font(.title)
                 .fontWeight(.bold)
+                .padding(.top, 100)
             Text("Login")
-                .font(.subheadline)
+                .font(.body)
+                .padding(.bottom, 30)
+            VStack(alignment: .center, spacing: 15) {
+                TextField("Enter your email", text: $email)
+                    .modifier(StandardTextField())
+                SecureField("Enter your password", text: $password)
+                    .modifier(StandardTextField())
+                
+                Spacer()
+                
+                Button(action: {
+                    
+                }) {
+                    Text("Login")
+                        .foregroundColor(.white)
+                }
+                .frame(width: 300, height: 50, alignment: .center)
+                .background(Color.init(uiColor: .mainColor!))
+                .cornerRadius(10)
+            }
+            
             
             Spacer()
-            
-            TextField("Enter your nickName", text: $nickName)
-                .modifier(StandardTextField())
-            
-            
         }
     }
 }
